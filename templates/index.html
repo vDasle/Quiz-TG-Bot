@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Halloween Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body id="q_page">
+    {% if status %} {# если авторизирвоан #}
+      <div id="page">
+        <div id="questions">
+          {% for q in j_data.questions %}
+            <div id="question">
+              <div>{{ q.title }}</div>
+              <!-- {{ q.desc }} -->
+              <!-- {{ q.options }} -->
+              <!-- {{ q.answer }} -->
+              <form action ="/send" method="post">
+                <input type="hidden" name="q" value="{{ q }}">  {# зашиваем вопрос в кнопку #}
+                <input type="submit" value="Отправить">
+              </form>
+            </div>
+          {% endfor %}
+        </div>
+        <div id="buttons">
+          <form action ="/upload" method="post" enctype="multipart/form-data"> {# последний атрибут не дает прервать окончательно загрузку файла #}
+            <input type="file" id="file" name="file">
+            <input type="submit" value="Загрузить">
+          </form>
+          {{ error }}
+          <form action ="/logout" method="post">
+            <input type="submit" value="Выход">
+          </form>
+          <form action ="/dashboard" method="get">
+            <input type="submit" value="Дашборд">
+          </form>
+          <form action ="/clearscore" method="post">
+            <input type="submit" value="Очистить очки участников">
+          </form>
+          <form action ="/sendmessage" method="post" id="sendmessage">
+            <select id="users" name="users">
+              <option value="-1">Всем</option>
+              {% for u in u_data.users %}
+              <option value="{{ u }}">{{ u_data.users[u].title }}</option>
+              {% endfor %}
+            </select>
+            <textarea rows="4" cols="30" name="text"></textarea>
+            <input type="submit" value="Отправить">
+          </form>
+          <img src={{ url_for('static', filename='w_cat.png') }} width="400"; height="400" id="w_cat">
+        </div>
+      </div>
+    {% else %} {# если не авторизирован #}
+      <div>
+        <form action ="/login" method="post">
+            <input type="text" id="login" name="login">
+            <input type="submit" value="Войти">
+        </form>
+        <form action ="/dashboard" method="get">
+          <input type="submit" value="Дашборд">
+      </form>
+      </div>
+    {% endif %}
+  </body>
+</html>

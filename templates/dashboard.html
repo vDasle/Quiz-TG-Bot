@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>Quiz Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+ </head>
+ <body background="{{ url_for('static', filename='h3.jpg') }}">
+    <div id="blank"></div>
+    <div id="dashboard">
+        {% for key, value in j_data.users.items() %}
+        <div id="child">
+            <p id="title">{{ value.title }}</p>
+            <img id="image" src={{ url_for('static', filename=value.id + '.png') }}>
+            <p id="score">{{ value.score }}</p>
+        </div>
+      {% endfor %}
+    </div>
+ </body>
+</html>

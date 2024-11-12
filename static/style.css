@@ -1,0 +1,91 @@
+#page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#q_page {
+    background-color: #e2d8ed;
+}
+
+#questions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#question {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#sendmessage {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+body {
+    height: 100vh;
+    margin-left: 130px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#dashboard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    height: 100vh;
+    scale: 85%;
+}
+
+#child {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 30%;
+}
+
+#title {
+    align-self: center;
+    width: 100%;
+    font-size: 40px;
+    font-family: "Alumni Sans", sans-serif;
+    margin-right: -80px;
+    background-color: chocolate;
+    color: #f7c28f;
+    padding-left: 15px;
+}
+
+#score {
+    align-self: center;
+    margin-left: 50px;
+    font-size: 70px;
+    width: 100%;
+    font-family: "Alumni Sans", sans-serif;
+    font-weight: 600;
+}
+
+img {
+    align-self: center;
+    width: 60%;
+    height: 70%;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+  }
+
+#w_cat {
+    margin-top: 55%;
+}
